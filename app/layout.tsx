@@ -27,10 +27,10 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body
-        className={cn("bg-background antialiased min-h-screen", geistSans.variable, geistMono.variable)}
-      >
-        {children}
-      </body>
+  className={cn("bg-background antialiased min-h-screen text-black", geistSans.variable, geistMono.variable)}
+>
+  {children}
+</body>
     </html>
   );
 }
