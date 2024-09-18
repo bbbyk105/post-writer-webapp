@@ -6,12 +6,12 @@ import { ReactNode, useState } from "react";
 import MobileNav from "./mobile-nav";
 
 interface MainNavProps {
-  items?: NavItem[];
+  items: NavItem[];
   children?: ReactNode;
 }
 
 export default function MainNav({ items }: MainNavProps) {
-const [showMobileMenu, setShowMobileMenu] = useState<boolean>(true);
+const [showMobileMenu, setShowMobileMenu] = useState<boolean>(false);
 
 
   return (
@@ -37,7 +37,7 @@ const [showMobileMenu, setShowMobileMenu] = useState<boolean>(true);
         >
           メニュー</span>
       </button>
-      {showMobileMenu && <MobileNav />}
+      {showMobileMenu && <MobileNav items={items}/>}
       
     </div>
   );
