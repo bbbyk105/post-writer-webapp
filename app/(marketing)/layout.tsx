@@ -3,6 +3,8 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import MainNav from "@/components/main-nav";
 import { marketingConfig } from "@/config/marketing";
+import SiteFooter from "@/components/site-footer";
+
 
 export default function MarketingLayout({
   children,
@@ -25,6 +27,7 @@ export default function MarketingLayout({
         </div>
       </header>
       <main>{children}</main>
+      <SiteFooter />
     </div>
   );
 }
