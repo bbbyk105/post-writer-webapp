@@ -1,8 +1,8 @@
 import { SiteConfig } from "@/types/index.d";
 
 export const siteConfig: SiteConfig = {
-    name: "postWriter",
-    description:"",
+    name: "PostWriter",
+    description:"ブログ投稿が簡単にできるWEBアプリケーションです。",
     url:"http://localhost:3000",
     onImage:"",
     links :{
