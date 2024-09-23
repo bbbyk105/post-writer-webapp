@@ -1,17 +1,35 @@
-import { defineDocumentType, makeSource } from 'contentlayer/source-files'
+import { defineDocumentType, makeSource } from "contentlayer/source-files";
 
-// Markdown または MDX ファイルを扱うドキュメントタイプの設定例
 export const Post = defineDocumentType(() => ({
-  name: 'Post',
-  filePathPattern: `**/*.mdx`,  // 必要に応じて拡張子を変更 (.md や .json など)
+  name: "Post",
+  filePathPattern: `blog/**/*.mdx`,
   fields: {
-    title: { type: 'string', required: true },
-    date: { type: 'date', required: true },
+    title: {
+      type: "string",
+      required: true,
+    },
+    description: {
+      type: "string",
+    },
+    date: {
+      type: "date",
+      required: true,
+    },
+    published: {
+      type: "boolean",
+      default: true,
+    },
+    image: {
+      type: "string",
+      required: true,
+    },
   },
-}))
+  computedFields: {
+    slug: {
+      type: "string",
+      resolve: (doc) => `/${doc._raw.flattenedPath}`,
+    },
+  },
+}));
 
-// Source ディレクトリの設定
-export default makeSource({
-  contentDirPath: 'posts',  // ドキュメントファイルが置かれているディレクトリ
-  documentTypes: [Post],
-})
+export default makeSource({ contentDirPath: "./content", documentTypes: [Post] });
