@@ -19,7 +19,7 @@ export const Post = defineDocumentType(() => ({
       type: "boolean",
       default: true,
     },
-    images: {
+    image: {
       type: "string",
       required: true,
     },
@@ -32,4 +32,4 @@ export const Post = defineDocumentType(() => ({
   },
 }));
 
-export default makeSource({contentDirPath: "./content", documentTypes: [Post]})
+export default makeSource({ contentDirPath: "./content", documentTypes: [Post] });
