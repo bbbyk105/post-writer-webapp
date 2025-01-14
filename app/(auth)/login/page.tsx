@@ -1,3 +1,4 @@
+import UserAuthForm from "@/components/user-auth-form";
 import Link from "next/link";
 
 export default function Login() {
@@ -12,7 +13,7 @@ export default function Login() {
             メールアドレスを入力してログインできます。
           </p>
         </div>
-        {/* <userAuthForm /> */}
+        <UserAuthForm />
 
         <p className="text-muted-foreground px-8 text-center text-sm">
           <Link href={"/fregister"} className="underline underline-offset-4">
