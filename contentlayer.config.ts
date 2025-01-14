@@ -29,7 +29,14 @@ export const Post = defineDocumentType(() => ({
       type: "string",
       resolve: (doc) => `/${doc._raw.flattenedPath}`,
     },
+    slugAsParams: {
+      type: "string",
+      resolve: (doc) => doc._raw.flattenedPath.split("/").splice(1)[0],
+    },
   },
 }));
 
-export default makeSource({ contentDirPath: "./content", documentTypes: [Post] });
+export default makeSource({
+  contentDirPath: "./content",
+  documentTypes: [Post],
+});

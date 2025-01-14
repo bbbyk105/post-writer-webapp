@@ -1,5 +1,7 @@
 import Image from "next/image"; // Image コンポーネントのインポート
 import { allPosts } from "@/.contentlayer/generated";
+import { format } from "date-fns";
+import Link from "next/link";
 
 export default function BlogPage() {
   const posts = allPosts;
@@ -17,26 +19,40 @@ export default function BlogPage() {
         </div>
       </div>
       <hr className="my-8" />
-      {posts.map((post) => (
-        <article key={post._id} className="my-4">
-          {post.image && (
-            <Image
-              src={post.image}
-              alt={post.title}
-              width={804}
-              height={452}
-              className="rounded-md border bg-muted"
-            />
-          )}
-          <h2 className="font-extrabold text-2xl">{post.title}</h2>
-          {post.description && (
-            <p className="text-muted-foreground">{post.description}</p>
-          )}
-          {post.date && (
-            <p className="text-sm text-muted-foreground">{post.date}</p>
-          )}
-        </article>
-      ))}
+      <div className="grid sm:grid-cols-2 gap-10">
+        {posts.map((post) => (
+          <article
+            key={post._id}
+            className="my-4 relative flex flex-col space-y-2"
+          >
+            {post.image && (
+              <Image
+                src={post.image}
+                alt={post.title}
+                width={804}
+                height={452}
+                className="rounded-md border bg-muted"
+              />
+            )}
+            <h2 className="font-extrabold text-2xl">{post.title}</h2>
+            {post.description && (
+              <p className="text-muted-foreground">{post.description}</p>
+            )}
+            {post.date && (
+              <p className="text-sm text-muted-foreground">
+                {format(post.date, "yyyy/MM/dd")}
+              </p>
+            )}
+            <Link
+              href={post.slug}
+              target="_blank"
+              rel="noreferrer"
+              className="absolute inset-0"
+            >
+            </Link>
+          </article>
+        ))}
+      </div>
     </div>
   );
 }
