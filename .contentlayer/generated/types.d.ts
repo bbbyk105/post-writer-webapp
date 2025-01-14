@@ -18,8 +18,8 @@ export type Post = {
   date: IsoDateTimeString
   published: boolean
   image: string
-  /** Markdown file body */
-  body: Markdown
+  /** MDX file body */
+  body: MDX
   slug: string
   slugAsParams: string
 }  
