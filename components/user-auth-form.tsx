@@ -2,6 +2,7 @@ import { Label } from "@radix-ui/react-label";
 import { Input } from "./ui/input";
 import { buttonVariants } from "./ui/button";
 import { cn } from "@/lib/utils";
+import { Icon } from "./icon";
 
 export default function UserAuthForm() {
   return (
@@ -29,6 +30,7 @@ export default function UserAuthForm() {
         </div>
       </div>
       <button className={cn(buttonVariants({ variant: "outline" }))}>
+        <Icon.github className="mr-1" />
         Github
       </button>
     </div>
