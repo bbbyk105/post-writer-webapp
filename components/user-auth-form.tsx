@@ -30,7 +30,7 @@ export default function UserAuthForm() {
         </div>
       </div>
       <button className={cn(buttonVariants({ variant: "outline" }))}>
-        <Icon.github className="mr-1" />
+        <Icon.github className="mr-2" />
         Github
       </button>
     </div>
