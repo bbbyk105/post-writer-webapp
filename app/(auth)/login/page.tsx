@@ -16,7 +16,7 @@ export default function Login() {
         <UserAuthForm />
 
         <p className="text-muted-foreground px-8 text-center text-sm">
-          <Link href={"/fregister"} className="underline underline-offset-4">
+          <Link href={"/register"} className="underline underline-offset-4">
             アカウントを持っていませんか？
           </Link>
         </p>
